@@ -24,6 +24,7 @@ private DefaultTableModel modelo = new DefaultTableModel() {
     public ConsultaPorRubro() {
         initComponents();
         armarCabecera();
+        jcbBuscarRubros.setModel(new javax.swing.DefaultComboBoxModel(Categoria.values()));
     }
 
     /**
@@ -49,7 +50,6 @@ private DefaultTableModel modelo = new DefaultTableModel() {
 
         jLabel2.setText("Rubro:");
 
-        jcbBuscarRubros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible\t", "Limpieza", "Perfumeria", " " }));
         jcbBuscarRubros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbBuscarRubrosActionPerformed(evt);
@@ -107,6 +107,24 @@ private DefaultTableModel modelo = new DefaultTableModel() {
 
     private void jcbBuscarRubrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbBuscarRubrosActionPerformed
         // TODO add your handling code here:
+        borrarFilas();
+        
+        Categoria seleccionada = (Categoria) jcbBuscarRubros.getSelectedItem();
+
+    for (Producto prod : MenuPrincipal.listaProductos) {
+        if (prod.getRubro() == seleccionada) {
+            modelo.addRow(new Object[]{
+                prod.getCodigo(),
+                prod.getDescripcion(),
+                prod.getPrecio(),
+                prod.getRubro(),
+                prod.getStock()
+            });
+        }
+    }
+
+   
+        
     }//GEN-LAST:event_jcbBuscarRubrosActionPerformed
 
 
