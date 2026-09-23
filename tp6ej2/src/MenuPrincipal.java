@@ -190,5 +190,5 @@ public class MenuPrincipal extends javax.swing.JFrame {
     listaProductos.add(new Producto(15,"Galletas Oreo",4000.00,9,Categoria.COMESTIBLE));
    
     }
-
+    
 }

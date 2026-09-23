@@ -1,3 +1,6 @@
+
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
@@ -8,12 +11,21 @@
  * @author tizzi
  */
 public class ConsultaPorNombre extends javax.swing.JInternalFrame {
+private DefaultTableModel modelo = new DefaultTableModel() {
+    
+    public boolean isCellEditable(int f, int c) {
+        return false; // Garantiza que NINGUNA celda sea editable
+    }
+};
+
+
 
     /**
      * Creates new form ConsultaPorNombre
      */
     public ConsultaPorNombre() {
         initComponents();
+        armarCabecera();
     }
 
     /**
@@ -42,6 +54,11 @@ public class ConsultaPorNombre extends javax.swing.JInternalFrame {
         txtBuscarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarNombreActionPerformed(evt);
+            }
+        });
+        txtBuscarNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarNombreKeyReleased(evt);
             }
         });
 
@@ -97,6 +114,24 @@ public class ConsultaPorNombre extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarNombreActionPerformed
 
+    private void txtBuscarNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarNombreKeyReleased
+        // TODO add your handling code here:
+        borrarFilas();
+        for (Producto prod : MenuPrincipal.listaProductos) {
+        if (prod.getDescripcion().startsWith(txtBuscarNombre.getText())) {
+            modelo.addRow(new Object[]{
+                prod.getCodigo(),
+                prod.getDescripcion(),
+                prod.getPrecio(),
+                prod.getRubro(),
+                prod.getStock()
+            });
+        }
+    }
+
+        
+    }//GEN-LAST:event_txtBuscarNombreKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -105,4 +140,24 @@ public class ConsultaPorNombre extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtablaNombre;
     private javax.swing.JTextField txtBuscarNombre;
     // End of variables declaration//GEN-END:variables
+
+    private void armarCabecera() {
+    modelo.addColumn("Código");
+    modelo.addColumn("Descripción");
+    modelo.addColumn("Precio");
+    modelo.addColumn("Categoría");
+    modelo.addColumn("Stock");
+    jtablaNombre.setModel(modelo);
+}
+    private void borrarFilas(){
+    
+        int filas = jtablaNombre.getRowCount()-1;
+        for (int f=filas; f>=0; f--){
+            modelo.removeRow(f);
+            
+        }
+    }
+
+
+
 }
