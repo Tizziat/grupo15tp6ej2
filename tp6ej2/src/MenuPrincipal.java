@@ -188,6 +188,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void cargarProductos(){
     listaProductos.add(new Producto(15,"Galletas Oreo",4000.00,9,Categoria.COMESTIBLE));
+    listaProductos.add(new Producto(10, "Azúcar 1kg", 1200.0, 50, Categoria.COMESTIBLE));
+    listaProductos.add(new Producto(25, "Jabón Líquido", 3500.5, 20, Categoria.LIMPIEZA));
+    listaProductos.add(new Producto(30, "Perfume Paco Rabanne", 8599.75, 12, Categoria.PERFUMERIA));
+
    
     }
     

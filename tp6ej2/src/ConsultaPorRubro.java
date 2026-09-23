@@ -50,6 +50,11 @@ private DefaultTableModel modelo = new DefaultTableModel() {
         jLabel2.setText("Rubro:");
 
         jcbBuscarRubros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible\t", "Limpieza", "Perfumeria", " " }));
+        jcbBuscarRubros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbBuscarRubrosActionPerformed(evt);
+            }
+        });
 
         jtablaRubro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,6 +105,10 @@ private DefaultTableModel modelo = new DefaultTableModel() {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jcbBuscarRubrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbBuscarRubrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbBuscarRubrosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -116,6 +125,12 @@ private DefaultTableModel modelo = new DefaultTableModel() {
     modelo.addColumn("Categoría");
     modelo.addColumn("Stock");
     jtablaRubro.setModel(modelo);
+}
+    private void borrarFilas() {
+    int filas = jtablaRubro.getRowCount() - 1;
+    for (int f = filas; f >= 0; f--) {
+        modelo.removeRow(f);
+    }
 }
 
 

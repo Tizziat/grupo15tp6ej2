@@ -56,12 +56,22 @@ private DefaultTableModel modelo = new DefaultTableModel() {
                 txtPrecioMinActionPerformed(evt);
             }
         });
+        txtPrecioMin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPrecioMinKeyReleased(evt);
+            }
+        });
 
         jLabel3.setText("Y");
 
         txtPrecioMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrecioMaxActionPerformed(evt);
+            }
+        });
+        txtPrecioMax.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPrecioMaxKeyReleased(evt);
             }
         });
 
@@ -97,11 +107,11 @@ private DefaultTableModel modelo = new DefaultTableModel() {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(txtPrecioMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
+                        .addComponent(txtPrecioMin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPrecioMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtPrecioMax, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(7, Short.MAX_VALUE)
@@ -117,8 +127,8 @@ private DefaultTableModel modelo = new DefaultTableModel() {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtPrecioMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtPrecioMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrecioMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -134,6 +144,16 @@ private DefaultTableModel modelo = new DefaultTableModel() {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecioMaxActionPerformed
 
+    private void txtPrecioMinKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioMinKeyReleased
+        // TODO add your handling code here:
+        buscarPorPrecio();
+    }//GEN-LAST:event_txtPrecioMinKeyReleased
+
+    private void txtPrecioMaxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioMaxKeyReleased
+        // TODO add your handling code here:
+        buscarPorPrecio();
+    }//GEN-LAST:event_txtPrecioMaxKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -144,6 +164,7 @@ private DefaultTableModel modelo = new DefaultTableModel() {
     private javax.swing.JTextField txtPrecioMax;
     private javax.swing.JTextField txtPrecioMin;
     // End of variables declaration//GEN-END:variables
+    
     private void armarCabecera() {
     modelo.addColumn("Código");
     modelo.addColumn("Descripción");
@@ -152,8 +173,32 @@ private DefaultTableModel modelo = new DefaultTableModel() {
     modelo.addColumn("Stock");
     jtablaPrecio.setModel(modelo);
 }
+    private void borrarFilas() {
+    int filas = jtablaPrecio.getRowCount() - 1;
+    for (int f = filas; f >= 0; f--) {
+        modelo.removeRow(f);
+    }
+}   
+    private void buscarPorPrecio() {
+    borrarFilas();
+    
+    try {
+        double min = txtPrecioMin.getText().isEmpty() ? 0 : Double.parseDouble(txtPrecioMin.getText());
+        double max = txtPrecioMax.getText().isEmpty() ? Double.MAX_VALUE : Double.parseDouble(txtPrecioMax.getText());
 
-
-
+        for (Producto prod : MenuPrincipal.listaProductos) {
+            if (prod.getPrecio() >= min && prod.getPrecio() <= max) {
+                modelo.addRow(new Object[]{
+                    prod.getCodigo(),
+                    prod.getDescripcion(),
+                    prod.getPrecio(),
+                    prod.getRubro(),
+                    prod.getStock()
+                });
+            }
+        }
+    } catch (NumberFormatException e) {
+    }
+}
 
 }
