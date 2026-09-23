@@ -1,3 +1,6 @@
+
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
@@ -8,12 +11,19 @@
  * @author tizzi
  */
 public class ConsultaPorPrecio extends javax.swing.JInternalFrame {
+private DefaultTableModel modelo = new DefaultTableModel() {
+    
+    public boolean isCellEditable(int f, int c) {
+        return false; 
+    }
+};
 
     /**
      * Creates new form ConsultaPorPrecio
      */
     public ConsultaPorPrecio() {
         initComponents();
+        armarCabecera();
     }
 
     /**
@@ -134,4 +144,16 @@ public class ConsultaPorPrecio extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtPrecioMax;
     private javax.swing.JTextField txtPrecioMin;
     // End of variables declaration//GEN-END:variables
+    private void armarCabecera() {
+    modelo.addColumn("Código");
+    modelo.addColumn("Descripción");
+    modelo.addColumn("Precio");
+    modelo.addColumn("Categoría");
+    modelo.addColumn("Stock");
+    jtablaPrecio.setModel(modelo);
+}
+
+
+
+
 }

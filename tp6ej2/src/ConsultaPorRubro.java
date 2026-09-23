@@ -1,3 +1,6 @@
+
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
@@ -8,12 +11,19 @@
  * @author tizzi
  */
 public class ConsultaPorRubro extends javax.swing.JInternalFrame {
+private DefaultTableModel modelo = new DefaultTableModel() {
+    
+    public boolean isCellEditable(int f, int c) {
+        return false; 
+    }
+};
 
     /**
      * Creates new form ConsultaPorRubro
      */
     public ConsultaPorRubro() {
         initComponents();
+        armarCabecera();
     }
 
     /**
@@ -98,4 +108,15 @@ public class ConsultaPorRubro extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jcbBuscarRubros;
     private javax.swing.JTable jtablaRubro;
     // End of variables declaration//GEN-END:variables
+
+    private void armarCabecera() {
+    modelo.addColumn("Código");
+    modelo.addColumn("Descripción");
+    modelo.addColumn("Precio");
+    modelo.addColumn("Categoría");
+    modelo.addColumn("Stock");
+    jtablaRubro.setModel(modelo);
+}
+
+
 }
