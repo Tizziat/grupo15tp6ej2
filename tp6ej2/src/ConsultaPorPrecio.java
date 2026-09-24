@@ -35,10 +35,10 @@ private DefaultTableModel modelo = new DefaultTableModel() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jlTitulo = new javax.swing.JLabel();
+        jlEntre = new javax.swing.JLabel();
         txtPrecioMin = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jlY = new javax.swing.JLabel();
         txtPrecioMax = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtablaPrecio = new javax.swing.JTable();
@@ -46,10 +46,10 @@ private DefaultTableModel modelo = new DefaultTableModel() {
         setClosable(true);
         setIconifiable(true);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Listado por Precio:");
+        jlTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlTitulo.setText("Listado por Precio:");
 
-        jLabel2.setText("Entre");
+        jlEntre.setText("Entre");
 
         txtPrecioMin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +62,7 @@ private DefaultTableModel modelo = new DefaultTableModel() {
             }
         });
 
-        jLabel3.setText("Y");
+        jlY.setText("Y");
 
         txtPrecioMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,13 +103,13 @@ private DefaultTableModel modelo = new DefaultTableModel() {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(jlTitulo)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(jlEntre)
                         .addGap(18, 18, 18)
                         .addComponent(txtPrecioMin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
+                        .addComponent(jlY)
                         .addGap(18, 18, 18)
                         .addComponent(txtPrecioMax, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -122,13 +122,13 @@ private DefaultTableModel modelo = new DefaultTableModel() {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(jlTitulo)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jlEntre)
                     .addComponent(txtPrecioMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPrecioMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jlY))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -156,10 +156,10 @@ private DefaultTableModel modelo = new DefaultTableModel() {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jlEntre;
+    private javax.swing.JLabel jlTitulo;
+    private javax.swing.JLabel jlY;
     private javax.swing.JTable jtablaPrecio;
     private javax.swing.JTextField txtPrecioMax;
     private javax.swing.JTextField txtPrecioMin;

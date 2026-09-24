@@ -37,8 +37,8 @@ private DefaultTableModel modelo = new DefaultTableModel() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jlTitulo = new javax.swing.JLabel();
+        jlDescripcion = new javax.swing.JLabel();
         txtBuscarNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtablaNombre = new javax.swing.JTable();
@@ -46,10 +46,10 @@ private DefaultTableModel modelo = new DefaultTableModel() {
         setClosable(true);
         setIconifiable(true);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Listado por nombre:");
+        jlTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlTitulo.setText("Listado por nombre:");
 
-        jLabel2.setText("Ingrese Descripción:");
+        jlDescripcion.setText("Ingrese Descripción:");
 
         txtBuscarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,8 +87,8 @@ private DefaultTableModel modelo = new DefaultTableModel() {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
+                    .addComponent(jlTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlDescripcion)
                     .addComponent(txtBuscarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(7, Short.MAX_VALUE))
@@ -97,9 +97,9 @@ private DefaultTableModel modelo = new DefaultTableModel() {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(jlDescripcion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtBuscarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -134,9 +134,9 @@ private DefaultTableModel modelo = new DefaultTableModel() {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jlDescripcion;
+    private javax.swing.JLabel jlTitulo;
     private javax.swing.JTable jtablaNombre;
     private javax.swing.JTextField txtBuscarNombre;
     // End of variables declaration//GEN-END:variables

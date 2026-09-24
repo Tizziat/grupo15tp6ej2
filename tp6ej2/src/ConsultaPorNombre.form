@@ -26,8 +26,8 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlTitulo" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="jlDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="txtBuscarNombre" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="375" max="-2" attributes="0"/>
               </Group>
@@ -39,9 +39,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="jlTitulo" min="-2" pref="31" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <Component id="jlDescripcion" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="txtBuscarNombre" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -52,7 +52,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jlTitulo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
@@ -60,7 +60,7 @@
         <Property name="text" type="java.lang.String" value="Listado por nombre:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="jlDescripcion">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ingrese Descripci&#xf3;n:"/>
       </Properties>
