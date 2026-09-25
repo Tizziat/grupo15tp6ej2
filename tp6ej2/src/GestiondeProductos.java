@@ -128,6 +128,11 @@ public class GestiondeProductos extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableProductoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableProducto);
         if (jTableProducto.getColumnModel().getColumnCount() > 0) {
             jTableProducto.getColumnModel().getColumn(0).setHeaderValue("Código");
@@ -149,6 +154,11 @@ public class GestiondeProductos extends javax.swing.JInternalFrame {
 
         jlStock.setText("Stock");
 
+        txtCodigo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCodigoFocusLost(evt);
+            }
+        });
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoActionPerformed(evt);
@@ -414,6 +424,63 @@ public class GestiondeProductos extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Error", "Debe ingresar un numero.", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jbLupaActionPerformed
+
+    private void txtCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodigoFocusLost
+        // TODO add your handling code here:
+        
+        String textoCodigo = txtCodigo.getText().trim();
+        
+        if(textoCodigo.isEmpty()){
+            return;
+        }
+        try{
+            int codigoBuscado = Integer.parseInt(textoCodigo);
+            Producto productoEncontrado  = null;
+            
+         for(Producto prod : MenuPrincipal.listaProductos){
+                if(prod.getCodigo() == codigoBuscado){
+                    productoEncontrado = prod;
+                    break;
+                }
+            }
+         if(productoEncontrado != null){
+                txtDescripcion.setText(productoEncontrado.getDescripcion());
+                txtPrecio.setText(String.valueOf(productoEncontrado.getPrecio()));
+                jcbRubro.setSelectedItem(productoEncontrado.getPrecio());
+                jsStock.setValue(productoEncontrado.getStock());
+                
+                jbGuardar.setEnabled(false);
+                jbActualizar.setEnabled(true);
+                jbEliminar.setEnabled(true);
+                
+            } else {
+                jbGuardar.setEnabled(true);
+                jbActualizar.setEnabled(false);
+                jbEliminar.setEnabled(false);
+         }
+            
+        } catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Error", "Debe ingresar un numero.", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_txtCodigoFocusLost
+
+    private void jTableProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProductoMouseClicked
+        // TODO add your handling code here:
+        
+        int fila = jTableProducto.getSelectedRow();
+        
+        if(fila != -1){
+            txtCodigo.setText(jTableProducto.getValueAt(fila, 0).toString());
+            txtDescripcion.setText(jTableProducto.getValueAt(fila, 1).toString());
+            txtPrecio.setText(jTableProducto.getValueAt(fila, 2).toString());
+            jcbRubro.setSelectedItem(jTableProducto.getValueAt(fila, 3));
+            jsStock.setValue(jTableProducto.getValueAt(fila, 4).toString());
+            
+            jbGuardar.setEnabled(false);
+            jbActualizar.setEnabled(true);
+            jbEliminar.setEnabled(true);
+        }
+    }//GEN-LAST:event_jTableProductoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
